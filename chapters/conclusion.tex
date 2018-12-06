@@ -1,0 +1,111 @@
+A munka első felében elkészítettem egy komplex C++ alkalmazást,
+ami képes a megadott prt fájlokat megnyitni
+és a bennük található részecskéket 
+gömbök formájában megjeleníteni.
+Az alkalmazásban sikerült megvalósítanom 
+a részecskék számának növelését is.
+
+Ezután a munka második felében végigfejlesztettem egy komolyabb 
+felhasználói felülettel rendelkező programot,
+ami a megnyitja a megadott vtp fájlokat
+és megjeleníti azok tartalmát.
+
+A prt megjelenítő fejlesztésének folyamán 
+megismerkedtem a modern OpenGL -lel,
+és az egyszerűbb OpenGL alkalmazásokhoz 
+használt elterjedtebb könyvtárakkal.
+Ezenkívül alapszinten megtanultam használni 
+az olyan eszközöket, mint a Visual Studio,
+a CMake és a Git. 
+
+A vtp megjelenítő alkalmazás fejlesztésekor az újdonság 
+a Qt szoftverfejlesztői csomag használata volt.
+Ennek megfelelően a legnagyobb nehézséget 
+nem is a megjelenítés,
+hanem felhasználói felület elkészítése okozta,
+különös tekintettel a fájlkiválasztó ablakra.
+Szerencsére a jó dokumentációnak köszönhetően
+a problémákat sikeresen megoldottam.
+
+\section{Továbbfejlesztési lehetőségek}
+
+A két alkalmazás rengeteg továbbfejlesztési lehetőséget tartogat.
+Ezek közül a legfontosabbak:
+
+\begin{description}[font=\normalfont\itshape\bfseries\space]
+\item [Gpu gyorsítás használata a prt megjelenítő alkalmazásban:] \hfill \\
+A prt megjelenítő alkalmazásban
+a részecskesűrűség növelésére bevezetett algoritmusok 
+jelentősen csökkentik a megjelenítés sebességét.
+A feladat egy része azonban 
+egy megfelelő függvénykönyvtár segítségével
+elvileg áttehető a gpu -ra,
+ami sokat javítana a felhasználói élményen.
+\item [Háromszögháló a részecskék köré:] \hfill \\
+A prt betöltő alkalmazásban a megjelenítésen 
+sokat lehetne javítani 
+egy részecskéket körbefoglaló háromszöghálóval,
+amire aztán egy megfelelő textúra is kerülhetne.
+\item [A beállítások fájlból történő betöltése:] \hfill \\
+A két alkalmazás rengeteg beállítást tartalmaz,
+amiket egyelőre csak a felhasználói felületen,
+vagy a forráskódban lehet megadni.
+A program használata kényelmesebb lehetne,
+ha a megjelenítés paramétereit 
+előre be lehetne állítani egy konfigurációs fájlban.
+\item [A megvilágítás fejlesztése:] \hfill \\
+A jelenlegi fix megvilágítás helyett 
+az alkalmazások használhatnának 
+a kezelőfelületen megadható 
+számú fényforrást.
+A meglévő pontfényforrásokon kívül lehetnének irányfényforrások is.
+
+\end{description}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

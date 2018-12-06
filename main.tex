@@ -1,0 +1,161 @@
+\documentclass[11pt,twoside]{report}
+
+\usepackage[magyar]{babel}
+\usepackage{enumitem}
+
+\newcounter{descriptcount}
+
+\usepackage[T1]{fontenc}
+\usepackage[scaled=0.825]{beramono}
+
+\usepackage{biblatex}
+\addbibresource{references.bib}
+
+\usepackage{sectsty}
+\sectionfont{\fontsize{14}{17}\selectfont}
+\subsectionfont{\fontsize{12}{15}\selectfont}
+
+\usepackage[utf8]{inputenc}
+\usepackage{t1enc}
+\usepackage{graphicx}
+\graphicspath{{images/}}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black, 
+    linkcolor=black,
+    urlcolor=black
+}
+
+\usepackage[all]{hypcap}
+
+\usepackage[a4paper,width=154mm,top=25mm,bottom=25mm,bindingoffset=6mm]{geometry}
+
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\definecolor{purple}{RGB}{139,0,139}
+
+\lstdefinestyle{customcpp}{frame=none,
+  language=C++,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3,	
+  classoffset=1,
+  morekeywords={QScreen, QObject, QString, EventEmitter, EventReceiver, 
+  QFile, QXmlStreamReader},
+  keywordstyle=\color{purple},
+  classoffset=2,
+  morekeywords={vec3},
+  keywordstyle=\color{blue},
+  classoffset=0
+}
+
+\lstdefinestyle{customxml}{frame=none,
+  language=XML,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3,	
+  classoffset=1,
+  morekeywords={QScreen},
+  keywordstyle=\color{red},
+  classoffset=0
+}
+
+\lstdefinestyle{custombash}{frame=none,
+  language=bash,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{black},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3,	
+  classoffset=1,
+  morekeywords={QScreen},
+  keywordstyle=\color{red},
+  classoffset=0
+}
+
+\usepackage{fancyhdr}
+
+\fancyhead{}
+\fancyhead[RE,RO]{\thechapter . \chaptername}
+\fancyhead[LE,LO]{\leftmark}
+
+\begin{document}
+
+\input{titlepage}
+
+\pagestyle{empty}
+\tableofcontents
+
+\input{chapters/statement}
+
+\chapter*{Kivonat}
+\addcontentsline{toc}{chapter}{Kivonat}
+\input{chapters/abstract_hu}
+
+%\chapter*{Abstract}
+%\addcontentsline{toc}{chapter}{Abstract}
+%\input{chapters/abstract}
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\chapter{Bevezetés}
+\input{chapters/introduction}
+
+\chapter{Prt fájlok betöltése és megjelenítése}
+\input{chapters/chapter2}
+
+\chapter{Vtp fájlok megjelenítése}
+\input{chapters/chapter3}
+
+\chapter{Összegzés}
+\input{chapters/conclusion}
+
+\renewcommand{\bibname}{Irodalomjegyzék}
+\nocite{*}
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{Irodalomjegyzék}
+\printbibliography
+
+\pagestyle{empty}
+
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{\listfigurename}
+\listoffigures
+
+\end{document}

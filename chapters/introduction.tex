@@ -1,0 +1,227 @@
+Napjainkban a számítógépeket gyakran használják
+fizikai szimulációk kiértékelésére
+és megjelenítésére.
+Ezen belül külön területnek számít
+a részecskealapú szimulációk témaköre.
+
+A részecskealapú 
+szimulációknál a problémát jellemzően az jelenti,
+a műveleteket nagy mennyiségű ponton kell végrehajtani,
+így a számítások még egy 
+mai számítógéppel is hosszú időt vehetnek igénybe.
+Ennek következtében a fejlesztők szét szokták választani
+a fizikai szimulációt a megjelenítéstől,
+tehát a szimuláció eredményét 
+a lassú számítási idő miatt
+(ami pár másodperctől akár több napig is terjedhet)
+nem jelenítik meg rögtön, 
+hanem először egy fájlba mentik.
+A megjelenítést ezután végezheti 
+ugyanaz az alkalmazás is,
+de a feladat gyakran egy másik programra hárul.
+
+A fájlok betöltésére és megjelenítésére írt programoknál
+bár a fizikai szimulációt már nem kell újraszámítani,
+a magas pont, illetve részecskeszám miatt 
+továbbra is komoly problémát
+jelenthet a valós idő biztosítása.
+Tovább ronthatja a helyzetet a képkockák magas száma,
+illetve a megjelenítő alkalmazással kapcsolatos
+speciális elvárások is, 
+mint például a részecskék sűrűségének növelése,
+vagy a részecskék köré háromszögháló generálása.
+
+A projekt célja két fizikai szimulációt 
+tartalmazó fájltípus megjelenítése.
+Az egyik fájltípusnál egy sikeres kísérlet történt 
+a megjelenített részecskék sűrűségének növelésére is.
+
+\section{A szakdolgozat felépítése}
+
+A szakdolgozat egy bevezető fejezettel kezdődik,
+ami a megjelenítendő fájltípusokról tartalmaz
+rövid leírást.
+A további rész két nagyobb blokkra osztható.
+
+A szakdolgozat első fele a prt fájlok megjelenítésére
+írt alkalmazást tárgyalja.
+Ezen belül a 3. fejezetben a feladat specifikációja
+és az alkalmazás felhasználói felületének leírása
+található.
+A 4. fejezet a fejlesztés folyamán 
+használt fontosabb eszközök 
+és könyvtárak leírásával kezdődik, 
+majd az alkalmazás implementációs részleteivel folytatódik.
+Az 5. fejezet annak az algoritmusnak lett szentelve,
+ami a részecskék sűrűségét hivatott növelni.
+A fejezet kitér az implementációs részletekre
+és a felhasználói felület beállításaira is.
+
+A szakdolgozat második fele 
+a vtp fájlok megjelenítéséhez írt alkalmazásról szól.
+A rész egy bevezető fejezettel kezdődik (6. fejezet),
+amiben ismertetésre kerülnek a projekt céljai. 
+Ezután a 7. fejezetben 
+a Qt könyvtárnak a projekt szempontjából fontos osztályai
+és szolgáltatásai kerülnek bemutatásra.
+A 8. fejezetben található az elkészített alkalmazás
+használatának és kezelőfelületének leírása.
+A 9. fejezet implementációs részleteket tartalmaz.
+A fájlkiválasztó ablaknak egy külön fejezetet (10.) szenteltem,
+amiben kitértem az ablak kezelőfelületének ismertetésére
+és a kód részletezésére is.
+
+\section{A megjelenítendő fájltípusok}
+
+\subsection{prt}
+
+A prt az Autodesk Maya egyik pluginjának, 
+a Krakatoa -nak a fájlformátuma \cite{prtsite}. 
+A formátumot nagy számú részecske pozíciójának 
+és egyéb adatainak hatékony tárolására tervezték.
+
+A fájl két részből áll. 
+Az első része a header, amiben metaadatok, a részecskék száma, 
+valamint a részecskékkel kapcsolatban eltárolt adatok hivatkozási neve, 
+típusa és mérete található. 
+A fájl második részében vannak az egyes részecskék tényleges adatai, 
+amik bináris formátumban tárolódnak. 
+A rész tömörítve van zlib segítségével.
+
+Az általam megalkotott szoftver feladata 
+egy hószimulációs algoritmus kimenetének megjelenítése. 
+A szimuláció 48 darab prt fájlba lett mentve. 
+Az egyes fájlok egy -egy képkocka (frame) részecskéinek 
+aktuális állapotát tükrözik. 
+A fájlok név szerinti sorrendbe rendezve az eredeti szimulációt adják vissza. 
+A fájlok az egyes részecskékkel kapcsolatban 3 adatot tartalmaznak. 
+Ezek az ID, az aktuális pozíció és az aktuális sebesség.
+
+\subsection{vtp}
+
+A vtp a VTK(Visualization Toolkit) formátuma \cite{wiki:vtk}. 
+A VTK egy nyílt forráskódú függvénykönyvtár, 
+amit háromdimenziós számítógépes grafikához, képfeldolgozáshoz 
+és vizualizációhoz csináltak. 
+A vtp fájlokat alapvetően háromszöghálóval 
+megadott háromdimenziós objektumok tárolására találták ki, 
+de részecskék tárolására is alkalmas. 
+A formátum annyiban hasonlít a prt -re, 
+hogy itt is lehetnek az egyes pontokban a pozíción kívül egyéb adatok is, 
+amit a megjelenítendő fájlok ki is használtak. 
+Míg viszont a prt fájlokban csak egy darab, 
+a pontok adataiból álló bináris szekvencia lehet, 
+addig a vtp fájlok képesek több, 
+különböző méretű szekvencia tárolására is. 
+Ez lehetőséget ad például arra, 
+hogy a fájlban a pontokon kívül tárolható legyen 
+egy más elemszámú index tömb is. 
+
+A vtp további különbsége a prt fájlokhoz képest a tárolás módja. 
+Míg a prt fájlokban a header részt leszámítva minden binárisan és tömörítve tárolódik, 
+addig vtp fájlokban az adatok ember által is olvasható xml formátumban vannak. 
+Ennek következtében a prt nagy mennyiségű részecske tárolására 
+sokkal hatékonyabban használható. 
+
+A fájlok mindegyike egy {\ttfamily VTKFile} nevű xml gyökérelemmel kezdődik, 
+amiben van egy {\ttfamily type}, 
+egy {\ttfamily version} 
+és egy {\ttfamily byte\_order} attribútum. 
+Ezek minden fájlban ugyanazokat értékeket veszik fel:
+\begin{lstlisting}[style=customxml]
+<VTKFile type="PolyData" version="0.1" byte_order="LittleEndian">
+  <PolyData>
+    ...
+  </PolyData>
+</VTKFile>
+\end{lstlisting}
+A {\ttfamily PolyData} elem gyereke minden fájlnál 
+egy darab {\ttfamily Piece} elem, 
+ami a következőképpen néz ki:
+\begin{lstlisting}[style=customxml]
+<Piece NumberOfPoints="361" NumberOfVerts="0" NumberOfLines="0" NumberOfStrips="0" NumberOfPolys="648">
+\end{lstlisting}
+Ezen belül a fájlok megjelenítéséhez 
+a {\ttfamily NumberOfPoints} 
+és a {\ttfamily NumberOfPolys} attribútumok fontosak. 
+A {\ttfamily NumberOfPoints} a fájlban tárolt részecskék 
+vagy háromszögpontok számát, 
+míg a {\ttfamily NumberOfPolys} indexelés esetén 
+a kirajzolandó háromszögek számát jelenti. 
+A megjelenítendő fájlokban a {\ttfamily Piece} elemnek három -féle gyereke lehet, 
+ami a {\ttfamily Points}, a {\ttfamily PointData} és a {\ttfamily Polys}.
+\\
+A {\ttfamily Points} elem az egyes részecskék, 
+vagy háromszögpontok pozícióit tárolja:
+\begin{lstlisting}[style=customxml]
+<Points>
+  <DataArray type="Float32" NumberOfComponents="3" format="ascii">
+    0 5.29396e-023 5 9.89297 5.17466e-023 0.032674 0 -5.29396e-023 -5 
+  </DataArray>
+</Points>
+\end{lstlisting}
+A {\ttfamily Polys} elem az indexeket tárolja háromszögháló Instancing esetén:
+\begin{lstlisting}[style=customxml]
+<Polys>
+  <DataArray type="Int32" Name="connectivity" format="ascii">
+    0 1 2
+  </DataArray>
+  <DataArray type="Int32" Name="offsets" format="ascii">
+    3
+  </DataArray>
+</Polys>
+\end{lstlisting}
+A {\ttfamily PointData} elemben lehetőség nyílik minden ponthoz 
+tetszőleges számú „felhasználói” adat tárolására. 
+Az alábbi példa egy olyan fájlból származik, 
+ahol az egyes pontok esetén két vektor került tárolásra, 
+amik a {\ttfamily velocity} és {\ttfamily area} neveket kapták:
+\begin{lstlisting}[style=customxml]
+<PointData Vectors="velocity area">
+  <DataArray type="Float32" Name="area" NumberOfComponents="3" format="ascii">
+    92 92 808 110 110 832 94 94 808 
+  </DataArray>
+  <DataArray type="Float32" Name="velocity" NumberOfComponents="3" format="ascii">
+    0 1 0 0 0 0 0 1 1 
+  </DataArray>
+</PointData>
+\end{lstlisting}
+A vtp fájlok cél szerint két csoportba sorolhatók. 
+Vannak számozatlan fájlok, 
+amiknek csak egyszerűen meg kell jeleníteni a tartalmát 
+és vannak számozott fájlokból álló csoportok, 
+amik egymás után, 
+szám szerinti sorrendben megjelenítve egy animációt adnak ki. 
+
+A megjelenítendő fájlok közül a háromszöghálót 
+és részecskepozíciókat tároló fájlokat az xml struktúrája alapján 
+lehet megkülönböztetni. 
+A részecskefájlokban csak {\ttfamily Points} elem található, 
+míg a háromszögfájlokban van {\ttfamily PointData} 
+és {\ttfamily Polys} elem is. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

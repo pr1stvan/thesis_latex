@@ -1,0 +1,15 @@
+*.aux
+*.dvi
+*.log
+*.out
+*.pdf
+*.gz
+*.toc
+*.bak
+*.upa
+*.upb
+*.lof
+*.blg
+*.bbl
+*.bcf
+*.xml
