@@ -147,11 +147,11 @@ Windows környezetben is Mac stílusú alkalmazás készítésére.
 A vtp fájlok betöltéséhez és megjelenítéshez írt 
 alkalmazás a Widgets modult használja.
 
-\vspace{3mm}
+\vspace{2mm}
 
-\noindent{\itshape A Qt Widgets fontosabb tulajdonságai:}
+\noindent{\itshape\bfseries A Qt Widgets fontosabb tulajdonságai:}
 
-\vspace{3mm}
+\vspace{2mm}
 
 \begin{itemize}
 \item 
@@ -182,10 +182,15 @@ a HTML Cascading Style Sheets inspirálta \cite{qtdocumentation},
 ami érezhető is a használat folyamán.
 \end{itemize}
 
-\subsection{A vtp megjelenítő -ben használt fontosabb Qt felületelemek:}
+\vspace{2mm}
+
+\noindent{\itshape\bfseries
+A vtp megjelenítő -ben használt fontosabb Qt felületelemek:}
+
+\vspace{2mm}
 
 \begin{sloppypar}
-\begin{description}[font=\normalfont\itshape\bfseries\space]
+\begin{description}[font=\normalfont\itshape\space]
 \item [QLabel, QSlider, QSpinBox, QCheckBox, QComboBox:] 
 A funkciójuk megegyezik a natív Windows -os megfelelőjükkel. 
 Sajnos a QSlider -ből a QSpinBox -szal ellentétben nincs lebegőpontos változat, 
@@ -258,7 +263,7 @@ majd az eszköztáraknak kijelölt terület.
 Ezenkívül megtalálható rajta legfelül a szokásos menüsor, 
 míg alul a status bar is.
 \par
-\begin{figure}[ht]
+\begin{figure}[!htb]
 \centering
 \includegraphics[scale=0.7]{mainwindowlayout}
 \caption{QMainWindow elrendezése \cite{mainwindowlayout}}
@@ -633,7 +638,7 @@ amivel bármilyen asztali alkalmazással kapcsolatos
 probléma megoldható külső könyvtárak használata nélkül is. 
 A továbbiakban pár olyan osztály kerül bemutatásra, 
 amik fontosak voltak a vtp megjelenítő alkalmazás fejlesztésekor.
-\begin{description}[font=\normalfont\itshape\bfseries\space]
+\begin{description}[font=\normalfont\itshape\space]
 \item [QVector:] 
 Az osztály célja az {\ttfamily std::vector} típus leváltása. 
 A Qt beépített container osztályainak
@@ -790,7 +795,7 @@ Egy Model -hez egyébként több View is tartozhat. \newline
 A Controller objektumokban található 
 a felhasználói interakcióval kapcsolatos események kezelése, 
 valamint szükség esetén itt történik a Model objektumok frissítése.
-\begin{figure}[h]
+\begin{figure}[!htb]
 \centering
 \includegraphics[scale=0.8]{mvcOriginal}
 \caption{Az eredeti MVC minta \cite{mvcoriginal}}
@@ -819,7 +824,7 @@ az MVC -hez hasonlóan továbbra is lehetővé teszi,
 hogy ugyanazokat az adatokat a tárolás logikájának megváltoztatása 
 nélkül lehessen egyszerre megjeleníteni akár több,
 egymástól különböző felületen is. 
-\begin{figure}[h]
+\begin{figure}[!htb]
 \centering
 \includegraphics[scale=0.7]{modelview-overview}
 \caption{A Qt Model/View architektúra \cite{mvprogramming}}
@@ -888,12 +893,13 @@ hogy a {\ttfamily QTreeView} struktúrája kicsit más.
 
 A Következőkben bemutatásra kerül az osztályok által reprezentált fa struktúra 
 egy gyakorlati példán keresztül is.
-\begin{figure}[h]
+\begin{figure}[!htb]
 \centering
 \includegraphics[scale=1.1]{treeviewexample}
 \caption{példa QTreeView -re}
 \label{fig:x treeviewexample}
 \end{figure}
+\newline
 A \ref{fig:x treeviewexample} ábrán egy {\ttfamily QTreeView} látható, 
 amiben fájlok, fájlcsoportok és mappák információi vannak. 
 A Model ezt a következőképpen reprezentálja:
@@ -1090,7 +1096,7 @@ a megjelenítési tér közepéhez viszi.
 
 \subsection{A vtp megjelenítő alkalmazás felhasználói felülete}
 
-\begin{figure}[h]
+\begin{figure}[!htb]
 \centering
 \includegraphics[scale=0.64]{szakdoga_gui}
 \caption{A vtp megjelenítő alkalmazás felhasználói felülete}
@@ -1210,14 +1216,14 @@ a többit egyelőre nem.
 A következőkben ismertetésre kerül az alkalmazás architektúrája, 
 valamint a fontosabb osztályok feladatai:
 
-\begin{figure}[h]
+\begin{figure}[!htb]
 \centering
 \includegraphics[scale=0.5]{thesis_class}
 \caption{A vtp megjelenítő alkalmazás osztálydiagramja}
 \label{fig:x thesis_class}
 \end{figure}
 
-\begin{description}[font=\normalfont\itshape\bfseries\space]
+\begin{description}[font=\normalfont\itshape\space]
 \item [Camera:]
 Feladata a kamera paramétereinek tárolása, 
 a kamera mozgatása, valamint 
@@ -1287,7 +1293,7 @@ Egy {\ttfamily FileEntry} -ben tartalmazza a tényleges információkat
 a fájllal/mappával kapcsolatban.
 \end{description}
 
-A fejezet további részében a vtp megjelenítő alkalmazás megvalósítási részleteiről lesz szó.
+\noindent A fejezet további részében a vtp megjelenítő alkalmazás megvalósítási részleteiről lesz szó.
 
 \subsection{ColorButton}
 
@@ -1611,7 +1617,7 @@ ennek megvalósítása nem volt nehéz.
 
 \subsection{A fájlkiválasztó ablak felhasználói felülete}
 
-\begin{figure}[h]
+\begin{figure}[!htb]
 \centering
 \includegraphics[scale=0.8]{openfiledialog}
 \caption{A fájlkiválasztó ablak}
@@ -1777,7 +1783,7 @@ A {\ttfamily CustomFileSystemModel} működéséhez felül kellett
 definiálni párat a {\ttfamily QAbstractItemModel} függvényei közül. 
 A következőkben ezen függvények implementációs részletei kerülnek bemutatásra:
 
-\begin{description}[font=\normalfont\itshape\bfseries\space]
+\begin{description}[font=\normalfont\itshape\space]
 \item [data:]
 {\ttfamily Qt::DisplayRole} szerep esetén a {\ttfamily TreeItem} -től 
 közvetlenül lekérdezhető a megjelenítendő adatok listája,
@@ -1877,7 +1883,11 @@ ami a {\ttfamily QMap} kulcsot kapja névként.
 A csoportban található fájlok ennek a gyerekei lesznek. 
 \end{description}
 
-\subsection{A QTreeView rendezése}
+\vspace{2mm}
+
+\noindent{\itshape\bfseries A QTreeView rendezése:}
+
+\vspace{3mm}
 
 A {\ttfamily QTreeView} tartalma természetesen rendezhető név, típus, méret 
 és módosítási dátum alapján. 

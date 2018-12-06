@@ -256,9 +256,13 @@ ami a fényforrás színét veszi fel.
 
 \section{A prt alkalmazáshoz használt eszközök és függvénykönyvtárak}
 
-\subsection{Git}
+\vspace{2mm}
 
-A Git egy nyílt forráskódú verziókövető rendszer, 
+\noindent{\itshape\bfseries Git:}
+
+\vspace{2mm}
+
+\noindent A Git egy nyílt forráskódú verziókövető rendszer, 
 amit Linus Torvalds kezdett el fejleszteni 2005 -ben 
 a linux kernel fejlesztésének támogatásához \cite{wiki:git}. 
 Ma már az egyik legelterjedtebb verziókövetőnek számít. 
@@ -266,9 +270,13 @@ A prt megjelenítő alkalmazás kódja jelenleg
 egy GitHub repository -n tárolódik és 
 a verziókövetés Git -tel történik. 
 
-\subsection{CMake}
+\vspace{3mm}
 
-Egy nagyobb, 
+\noindent{\itshape\bfseries CMake:}
+
+\vspace{2mm}
+
+\noindent Egy nagyobb, 
 több fájlból álló C++ projekt fordítására 
 a legkézenfekvőbb megoldás egy shell script írása lenne, 
 ami tartalmazza a fordításhoz és linkeléshez szükséges utasításokat. 
@@ -356,9 +364,13 @@ előrelépés a makefile -okhoz képest,
 a Qt -s qmake -el szemben a szintaktika továbbra is 
 feleslegesen bonyolultnak tűnik.
 
-\subsection{zlib}
+\vspace{3mm}
 
-A zlib egy tömörítésre és kibontásra használható 
+\noindent{\itshape\bfseries zlib:}
+
+\vspace{2mm}
+
+\noindent A zlib egy tömörítésre és kibontásra használható 
 nyílt forráskódú függvénykönyvtár, 
 amit Jean-loup Gailly 
 és Mark Adler írt 1995 -ben C nyelven \cite{wiki:zlib}. 
@@ -373,9 +385,13 @@ A PartIO azért használja a zlib -et,
 mert a prt fájlokban a header rész után a részecskékkel kapcsolatos adatok 
 a zlib formátumában vannak tömörítve.
 
-\subsection{PartIO}
+\vspace{3mm}
 
-A függvénykönyvtárat részecskefájlok betöltésére írta 
+\noindent{\itshape\bfseries PartIO:}
+
+\vspace{2mm}
+
+\noindent A függvénykönyvtárat részecskefájlok betöltésére írta 
 a Walt Disney Animation Studios -nál dolgozó Andrew Selle. 
 A könyvtár egy absztrakciós felületet biztosít, 
 13 -féle formátumú részecsketároló fájl betöltésére.
@@ -406,7 +422,11 @@ A projektből a többi fájlformátum támogatását és
 a példákat kivettem, 
 viszont a Linux támogatás a név ellenére megmaradt.
 
-\subsection{OpenGL}
+\vspace{3mm}
+
+\noindent{\itshape\bfseries OpenGL:}
+
+\vspace{3mm}
 
 Az OpenGL egy API kettő és háromdimenziós vektorgrafikus képek renderelésére. 
 Eredetileg a Silicon Graphics kezdte el fejleszteni 1992 -ben. 
@@ -419,7 +439,11 @@ valamint az olyan lehetőségek,
 mint a hardveresen gyorsított instancing 
 és indexelés miatt a 4.5 -as verziót használja.
 
-\subsection{GLM}
+\vspace{3mm}
+
+\noindent{\itshape\bfseries GLM:}
+
+\vspace{3mm}
 
 Az modern OpenGL egyik hátránya, 
 hogy hiányoznak belőle a rendereléshez 
@@ -450,7 +474,11 @@ Ez a tulajdonság például a kamera belső változóin
 végzett bonyolultabb műveleteknél jelentősen 
 megkönnyítette a programozást.
 
-\subsection{GLFW}
+\vspace{3mm}
+
+\noindent{\itshape\bfseries GLFW:}
+
+\vspace{3mm}
 
 Az OpenGL hátránya, hogy a specifikáció nem tartalmaz függvényeket 
 olyan alapvető problémákra, 
@@ -479,7 +507,11 @@ hogy a függvénykönyvtár szabad forráskódú
 ami gyakorlatilag semmilyen 
 megkötést sem tartalmaz a használatára \cite{glfw}.
 
-\subsection{AntTweakBar}
+\vspace{3mm}
+
+\noindent{\itshape\bfseries AntTweakBar:}
+
+\vspace{3mm}
 
 Az AntTweakBar egy függvénykönyvtár, ami egyszerű, 
 gyors és könnyen programozható 
@@ -533,7 +565,6 @@ bármilyen környezetben.
 
 \section{A prt megjelenítő alkalmazás megvalósítása}
 
-\subsection{Az alkalmazás architektúrája}
 Az alkalmazás architektúrájának tervezésekor megpróbáltam 
 szétválasztani a számításokat végző részt 
 a user input kezelésétől és 
@@ -558,7 +589,7 @@ később a Modell rész megváltoztatása nélkül
 hozzá lehet adni a projekthez egy Vulkan, 
 vagy akár DirectX alapút is. 
 
-\begin{figure}[h]
+\begin{figure}[!htb]
 \centering
 \includegraphics[scale=0.463]{projlab_class}
 \caption{Az alkalmazás architektúrája}
