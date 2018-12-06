@@ -1,11 +1,12 @@
-\documentclass[11pt,twoside]{report}
+\documentclass[11pt,a4paper,twoside]{report}
 
 %-------------------------------------------------------------------------------
 % Format setup
 %-------------------------------------------------------------------------------
 
-\usepackage[a4paper,width=154mm,top=25mm,bottom=25mm,bindingoffset=6mm]{geometry}
-
+%\usepackage[width=154mm,top=25mm,bottom=25mm,bindingoffset=6mm]{geometry}
+\usepackage{anysize}
+\marginsize{35mm}{25mm}{15mm}{15mm}
 \usepackage{fancyhdr}
 
 \fancyhead{}
@@ -26,6 +27,7 @@
 \usepackage[T1]{fontenc}
 \usepackage[scaled=0.825]{beramono}
 
+\frenchspacing
 %-------------------------------------------------------------------------------
 % Xml and c++ code font setup
 %-------------------------------------------------------------------------------
@@ -137,7 +139,7 @@
 \pagestyle{empty}
 \tableofcontents
 
-\input{chapters/statement}
+\input{chapters/declaration}
 
 \chapter*{Kivonat}
 \addcontentsline{toc}{chapter}{Kivonat}
