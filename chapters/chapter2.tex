@@ -993,3 +993,120 @@ amik a generált és vezérrészecske közötti maximálisan elfogadható távol
 a vezérrészecske körüli gömb sugara, 
 valamint a gömbön belüli pont követésének a sebessége.
 \end{description}
+
+\section{Tesztelés}
+
+Az alkalmazást leteszteltem részecskegenerálás nélkül,
+valamint kontrollpontonként 3, 20 és 100 generált részecskével.
+Mind a négy tesztesetnél ugyanazokat a beállításokat használtam.
+A generált részecskék maximális kezdeti távolságát 0.3 -ra, 
+a rács felosztását 30 -ra, 
+a generált részecskék színét pedig fehérre állítottam.
+Bár a rácspontok magas sűrűsége biztosította 
+a vezérrészecskék viszonylag pontos követését, 
+egyes részecskék az animáció folyamán hátramaradtak,
+így engedélyeztem a {\ttfamily follow controlpoints} opciót is.
+
+A tesztgépen az első 2 teszt stabilan hozta a 60 fps -t.
+A részecskeszám 20 -ra emelésekor az átlagos fps szám 23 -ra csökkent.
+A tesztgép a kontrollpontonként 100 részecskét már nem bírta. 
+Itt átlagosan 5 fps -t sikerült elérni.
+
+A tesztelés közben az alkalmazásról képeket is készítettem,
+amik a megjelenítendő prt fájlok közül az 1., a 11., a 14. 
+és a 30. tartalmát mutatják.
+
+\noindent Az első frame:
+\begin{figure}[!htb]
+    \centering
+    \begin{subfigure}[!htb]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{prt_jpg/1_0}
+        \caption{0 részecske}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[!htb]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{prt_jpg/1_3}
+        \caption{3 részecske}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[!htb]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{prt_jpg/1_20}
+        \caption{20 részecske}
+    \end{subfigure}
+    \label{Az 1. frame}
+\end{figure}
+
+\clearpage
+\noindent A 11. frame:
+\begin{figure}[!htb]
+    \centering
+    \begin{subfigure}[!htb]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{prt_jpg/11_0}
+        \caption{0 részecske}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[!htb]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{prt_jpg/11_3}
+        \caption{3 részecske}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[!htb]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{prt_jpg/11_20}
+        \caption{20 részecske}
+    \end{subfigure}
+\end{figure}
+
+\noindent A 14. frame:
+\begin{figure}[!htb]
+    \centering
+    \begin{subfigure}[!htb]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{prt_jpg/14_0}
+        \caption{0 részecske}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[!htb]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{prt_jpg/14_3}
+        \caption{3 részecske}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[!htb]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{prt_jpg/14_20}
+        \caption{20 részecske}
+    \end{subfigure}
+\end{figure}
+
+\noindent A 30. frame:
+\begin{figure}[!htb]
+    \centering
+    \begin{subfigure}[!htb]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{prt_jpg/30_0}
+        \caption{0 részecske}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[!htb]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{prt_jpg/30_3}
+        \caption{3 részecske}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[!htb]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{prt_jpg/30_20}
+        \caption{20 részecske}
+    \end{subfigure}
+\end{figure}
+
+
+
+
+
