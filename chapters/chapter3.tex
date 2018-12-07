@@ -1924,3 +1924,64 @@ mert név és típus alapján történő rendezés esetén
 a mappáknak mindig név szerint növekvő sorrendben kell lenniük,
 még akkor is, ha a rendezés egyébként csökkenő sorrendben történik.
 \end{itemize}
+
+\section{Képek az alkalmazásról}
+
+Az alkalmazás működésének szemléltetéséhez készült három kép
+egy olyan vtp fájl alapján, 
+ami az összes lehetséges adatot tartalmazza.
+Ennek megfelelően készült egy kép az egyszínű,
+valamint a sebesség és a vertex area alapú színezésről is.
+A képeken a pirosabb árnyalat jelzi a nagyobb, 
+míg a sárga a kisebb értéket.
+
+\begin{figure}[!htb]
+    \centering
+    \begin{subfigure}[!htb]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{vtp_jpg/normal}
+        \caption{egyszínű}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[!htb]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{vtp_jpg/velocity}
+        \caption{színezés sebesség szerint}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[!htb]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{vtp_jpg/vertarea}
+        \caption{színezés vertex area szerint}
+    \end{subfigure}
+    \caption{Vtp fájl megjelenítése}
+    \label{fig:x vtpcoloring}
+\end{figure}
+
+\clearpage
+\noindent Az alkalmazás képes frame -ek egymás után történő megjelenítésére is. 
+A következő három képen erre látható egy példa:
+
+\begin{figure}[!htb]
+    \centering
+    \begin{subfigure}[!htb]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{vtp_jpg/frame1}
+        \caption{első frame}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[!htb]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{vtp_jpg/frame2}
+        \caption{második frame}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[!htb]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{vtp_jpg/frame3}
+        \caption{harmadik frame}
+    \end{subfigure}
+    \caption{Frame -ek egymás utáni megjelenítése}
+    \label{fig:x frames}
+\end{figure}
+
