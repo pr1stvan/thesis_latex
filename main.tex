@@ -5,7 +5,7 @@
 %-------------------------------------------------------------------------------
 
 %\usepackage[width=154mm,top=25mm,bottom=25mm,bindingoffset=6mm]{geometry}
-\usepackage{anysize}
+\usepackage{anysize} %Deprecated, geometry represents the true coolness now.
 \marginsize{35mm}{25mm}{15mm}{15mm}
 \usepackage{fancyhdr}
 
@@ -20,7 +20,7 @@
 % Text font setup
 %-------------------------------------------------------------------------------
 
-\usepackage{sectsty}
+\usepackage{sectsty} %changes the style of sectional headers
 \sectionfont{\fontsize{14}{17}\selectfont}
 \subsectionfont{\fontsize{12}{15}\selectfont}
 
@@ -32,7 +32,7 @@
 % Xml and c++ code font setup
 %-------------------------------------------------------------------------------
 
-\usepackage{listings}
+\usepackage{listings} %Syntax highlight for the code examples
 \usepackage{color}
 
 \definecolor{dkgreen}{rgb}{0,0.6,0}
@@ -109,16 +109,16 @@
 
 %-------------------------------------------------------------------------------
 
-\usepackage[utf8]{inputenc}
+\usepackage[utf8]{inputenc} %utf8 chars in the source code
 \usepackage{graphicx}
 \graphicspath{{images/}}
 
 \usepackage[magyar]{babel}
 
-\usepackage{enumitem}
+\usepackage{enumitem} % customizable enumerations
 \newcounter{descriptcount}
 
-\usepackage{biblatex}
+\usepackage{biblatex} %The cool way of creating bibliography
 \addbibresource{references.bib}
 
 \usepackage{hyperref}
@@ -132,7 +132,7 @@
 \usepackage{caption}
 \usepackage{subcaption}
 
-\usepackage[all]{hypcap}
+\usepackage[all]{hypcap} %listofimages: jumping to the right place
 
 \begin{document}
 
